@@ -1,6 +1,10 @@
 const { Schema, model } = require("mongoose");
 
 const phraseSchema = new Schema({
+   name: {
+      type: String,
+      required: true
+   },
    text: {
       type: String,
       required: true,

@@ -1,7 +1,13 @@
 const mongoose = require("mongoose");
+const env = require("../env")
 
-const db = mongoose.connect('mongodb://127.0.0.1:27017/phrasesWeb', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, })
-   .then(db => console.log("Db is connected"))
-   .catch(e => console.log(e))
+const db = () => {
+   try {
+      mongoose.connect(env.uri, { useNewUrlParser: true, useUnifiedTopology: true }, () =>
+         console.log("connected"));
+   } catch (error) {
+      console.log("could not connect");
+   }
+}
 
 module.exports = db
