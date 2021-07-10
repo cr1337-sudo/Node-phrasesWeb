@@ -6,7 +6,8 @@ const phraseRoutes = require("./routes/phrase.routes")
 const db = require("./db")
 db()
 
-app.use(express.json())
+app.use(express.json());
+app.use(expresa.encodeuri());
 
 //Routes
 app.use("", phraseRoutes)
