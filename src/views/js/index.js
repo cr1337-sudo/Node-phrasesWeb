@@ -29,26 +29,49 @@ let time = 3000
 
 input.onkeydown = function (e) {
     if (e.keyCode == 13) {
-        let children = GridCtn.childNodes
 
-        array.push(input.value)
-        for (let i = 0; i <= (array.length - 1); i++) {
-            setTimeout(() => {
-                GridCtn.insertAdjacentHTML("beforeend", ` <div class="CtnM" style="grid-column: ${getRandomInt(1, 5)}; grid-row:${getRandomInt(1, 5)}" id="aa">
-            <div>${array[i]}</div> 
-        </div>` );
-       }, time);
-
-            time += 2000;
-
-
-
-
+        async function EnviarMensaje() {
+            let mensaje = input.value;
+            let data = {
+                "Mensaje": mensaje
+            }
+        const PostMensaje = await fetch("http://mongodb://127.0.0.1:27017/phrasesWeb", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+              },
+            body: JSON.stringify(data)
+        })
+        const res = await PostMensaje.json();
 
         }
-        CtnMsg.classList.add("Ctn-inputmsgSend");
-        IconMsg.classList.toggle("Ctn-iconmsgSend");
-        input.disabled = true;
+        EnviarMensaje();
+        
+        async function ObtenerMensajes() {
+            const GetMensajes = await fetch("http://mongodb://127.0.0.1:27017/phrasesWeb", {
+                method: "GET",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                  },
+            })
+            const res = await GetMensajes.json();
+            for (let i = 0; i <= (res.length - 1); i++) {
+                setTimeout(() => {
+                    GridCtn.insertAdjacentHTML("beforeend", ` <div class="CtnM" style="grid-column: ${getRandomInt(1, 5)}; grid-row:${getRandomInt(1, 5)}" id="aa">
+                <div>${res[i]}</div> 
+            </div>` );
+           }, time);
+    
+                time += 2000;
+            }
+            CtnMsg.classList.add("Ctn-inputmsgSend");
+            IconMsg.classList.toggle("Ctn-iconmsgSend");
+            input.disabled = true;
+            
+        }
+        ObtenerMensajes();
     }
 
 }
