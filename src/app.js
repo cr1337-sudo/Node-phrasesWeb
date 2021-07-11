@@ -3,14 +3,25 @@ const app = express()
 const port = process.env.port || 3000
 const phraseRoutes = require("./routes/phrase.routes")
 const path = require("path")
+const exphbs = require('express-handlebars');
+
 const db = require("./db")
 
 //Dtabase
 db()
 
-//Views & static
+//Views
 app.set("views", path.join(__dirname, "./views"))
-app.set(express.static(path.join(__dirname, "./static")))
+
+app.engine('.hbs', exphbs({
+   defaultLayout: null,
+   extname: ".hbs"
+}));
+//Configuracion para que .hbs sea la extension de los templates
+app.set('view engine', '.hbs');
+
+//Static
+app.use(express.static(path.join(__dirname, "./public")))
 
 //Middlewares
 app.use(express.json())

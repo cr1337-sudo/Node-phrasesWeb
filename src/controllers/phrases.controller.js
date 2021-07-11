@@ -23,7 +23,8 @@ const getPhrases = async (req, res) => {
    //Phrases desordenadas
    desor = phrases.sort(() => Math.random() - 0.5)
 
-   res.json(desor)
+   //res.json(desor)
+   res.render("index")
 }
 
 module.exports = { createPhrase, getPhrases }
