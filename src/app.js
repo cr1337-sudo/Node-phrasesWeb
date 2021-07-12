@@ -4,7 +4,6 @@ const port = process.env.port || 3000
 const phraseRoutes = require("./routes/phrase.routes")
 const path = require("path")
 const exphbs = require('express-handlebars');
-
 const db = require("./db")
 
 //Dtabase
