@@ -14,11 +14,11 @@ const getPhrases = async (req, res) => {
 
 const createPhrase = async (req, res) => {
    try {
-      const { name, text } = req.body;
+      const { text } = req.body;
       console.log(text)
       const amount = await Phrase.find().countDocuments()
 
-      const newPhrase = new Phrase({ name, text })
+      const newPhrase = new Phrase({ text })
       newPhrase.text_number = amount
       const savedPhrase = await newPhrase.save()
       res.json(savedPhrase)
