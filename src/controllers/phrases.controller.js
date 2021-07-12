@@ -1,8 +1,19 @@
 const Phrase = require("../models/Phrase")
 
+const index = (req, res) => {
+   res.render("index")
+}
+
+const getPhrases = async (req, res) => {
+
+   phrases = await Phrase.find()
+   //Phrases desordenadas
+   desor = phrases.sort(() => Math.random() - 0.5)
+   res.json(desor)
+}
+
 const createPhrase = async (req, res) => {
    try {
-
       const { name, text } = req.body;
       console.log(text)
       const amount = await Phrase.find().countDocuments()
@@ -16,15 +27,4 @@ const createPhrase = async (req, res) => {
    }
 }
 
-const getPhrases = async (req, res) => {
-
-   phrases = await Phrase.find()
-
-   //Phrases desordenadas
-   desor = phrases.sort(() => Math.random() - 0.5)
-
-   //res.json(desor)
-   res.render("index")
-}
-
-module.exports = { createPhrase, getPhrases }
+module.exports = { createPhrase, getPhrases, index }
