@@ -14,18 +14,8 @@ let length = array.length */
 function getRandomInt(min, max) {
    return Math.floor(Math.random() * (max - min)) + min;
 }
-
-
-let NumberY = Math.floor(Math.random() * (5 - 1)) + 1;
-let NumberX = Math.floor(Math.random() * (5 - 1)) + 1;
-/* console.log(NumberY);
-console.log(NumberX);
- */
 // Funcion para enviar el mensaje
-
 let time = 3000
-
-
 
 input.onkeydown = function (e) {
    if (e.keyCode == 13) {
@@ -61,9 +51,9 @@ input.onkeydown = function (e) {
 
             for (let i = 0; i <= (res.length - 1); i++) {
                setTimeout(() => {
-                  GridCtn.insertAdjacentHTML("beforeend", ` <div class="CtnM" style="grid-column: ${getRandomInt(1, 5)}; grid-row:${getRandomInt(1, 5)}" id="aa">
-                   <div>${res[i].text}</div> 
-               </div>` );
+                  GridCtn.insertAdjacentHTML("beforeend", `<div class="CtnM" style="margin-left:${getRandomInt(1, 95)}%; margin-top:${getRandomInt(1, 95)}%;" >
+                <div>${res[i].text}</div> 
+            </div>`);
                }, time);
                console.log(res);
                time += 2000;
@@ -92,8 +82,8 @@ function ClickImgMsg() {
    CtnMsg.classList.replace("Ctn-inputmsgSend", "Ctn-inputmsg");
    IconMsg.classList.replace("Ctn-iconmsgSend", "Ctn-iconmsg");
    Mensaje.classList.replace("CtnM", "CtnMEs")
-   setTimeout(function () { IconMsg.classList.remove("Ctn-iconmsg"); Mensaje.classList.remove("CtnMEs") }, 1700);
    input.disabled = false;
-
+   window.location.reload();
 }
+
 
