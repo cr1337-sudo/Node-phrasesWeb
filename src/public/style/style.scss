@@ -3,14 +3,16 @@
   margin: 0%;
   overflow: hidden;
   font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
 }
 
 // CLASE PARA LA ANIMACION DEL FONDO
 
 .MainBack {
-  animation-name: BackgroundMain;
-  animation-duration: 1.7s;
-  animation-fill-mode: forwards;
+   animation-name: BackgroundMain;
+   animation-duration: 2.7s;
+   animation-fill-mode: forwards;
+   background-image: url("/img/estrellas.png");
 }
 
 .button{
