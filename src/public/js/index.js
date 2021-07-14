@@ -2,13 +2,8 @@ const input = document.getElementById('input');
 const CtnMsg = document.getElementById('Ctn-Msg');
 const IconMsg = document.getElementById('IconMsg');
 const GridCtn = document.getElementById('Grid-ctn');
+let img = document.getElementById('img');
 
-
-
-
-/* 
-let array = ["Hola", "Como", "estas", "Cristian", "Jose", "Prueba", "Ojala que ande", "Me muero si no anda"]
-let length = array.length */
 
 
 function getRandomInt(min, max) {
@@ -17,8 +12,16 @@ function getRandomInt(min, max) {
 // Funcion para enviar el mensaje
 let time = 3000
 
-input.onkeydown = function (e) {
+input.addEventListener("keydown", (e) =>{
    if (e.keyCode == 13) {
+       Send();
+   }
+})
+
+img.addEventListener("click", Send)
+
+function Send () {
+  
 
       function EnviarMensaje() {
          let mensaje = input.value;
@@ -60,6 +63,7 @@ input.onkeydown = function (e) {
             }
             CtnMsg.classList.add("Ctn-inputmsgSend");
             IconMsg.classList.toggle("Ctn-iconmsgSend");
+            img.classList.toggle("buttonSend");
             input.disabled = true;
          })
 
@@ -68,7 +72,7 @@ input.onkeydown = function (e) {
 
    }
 
-}
+
 
 
 
@@ -81,7 +85,6 @@ function ClickImgMsg() {
    input.disabled = false;
    CtnMsg.classList.replace("Ctn-inputmsgSend", "Ctn-inputmsg");
    IconMsg.classList.replace("Ctn-iconmsgSend", "Ctn-iconmsg");
-   Mensaje.classList.replace("CtnM", "CtnMEs")
    input.disabled = false;
    window.location.reload();
 }
