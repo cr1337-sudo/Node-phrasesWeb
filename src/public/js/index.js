@@ -25,7 +25,7 @@ input.onkeydown = function (e) {
          let data = {
             "text": mensaje
          }
-         const PostMensaje = fetch("/", {
+         const PostMensaje = fetch("/api", {
             method: "POST",
             headers: {
                'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ input.onkeydown = function (e) {
       /* ----------------------------------------------------------------------------------------------- */
 
       function ObtenerMensajes() {
-         const GetMensajes = fetch("/", {
+         const GetMensajes = fetch("/api", {
             method: "GET",
             headers: {
                'Content-Type': 'application/json',

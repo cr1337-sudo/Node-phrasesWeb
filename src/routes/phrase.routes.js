@@ -2,8 +2,8 @@ const { Router } = require("express");
 const router = Router()
 const phrasesCtr = require("../controllers/phrases.controller")
 
-router.get("/home", phrasesCtr.index)
-router.post("/", phrasesCtr.createPhrase)
-router.get("/", phrasesCtr.getPhrases)
+router.get("/", phrasesCtr.index)
+router.post("/api", phrasesCtr.createPhrase)
+router.get("/api", phrasesCtr.getPhrases)
 
 module.exports = router
