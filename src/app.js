@@ -5,7 +5,7 @@ const phraseRoutes = require("./routes/phrase.routes")
 const path = require("path")
 const exphbs = require('express-handlebars');
 const db = require("./db")
-const morgan = require('morgan')
+//const morgan = require('morgan')
 
 
 //Dtabase
@@ -25,7 +25,7 @@ app.set('view engine', '.hbs');
 app.use(express.static(path.join(__dirname, "./public")))
 
 //Middlewares
-app.use(morgan("dev"))
+//app.use(morgan("dev"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))//Recibe datos unicamente strings o arrays
 
