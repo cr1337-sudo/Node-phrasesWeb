@@ -118,9 +118,7 @@
   0% {
     top: 87%;
   }
-  11%{
-    top: 87%;
-  }
+  
   100% {
     top: 100%;
   }
@@ -292,11 +290,7 @@
       animation-duration: 1.7s;
     }
 
-    .button:active{
-      animation-name: click;
-      animation-duration: 1.7;
-
-    }
+  
 
     //Animacion del boton cuando se da click
 
@@ -323,21 +317,11 @@
       background-color: rgba(194, 195, 190, 0.7);
       height: 50px;
       border-radius: 50%;
-      animation-name: ClickSend;
+      animation-name: InputAnimSend;
       animation-duration: 1.7s;
       animation-fill-mode: forwards;
     }
-
-    //Animacion para que desaparezca
-
-    @keyframes ClickSend {
-      0% {
-        top: 87%;
-      }
-      100% {
-        top: 100%;
-      }
-    }
+   
 
     .img{
       display: block;
