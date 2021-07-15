@@ -15,7 +15,7 @@ de tal forma que nunca se van a devolver las frases en el mismo orden
 
 Una ruta POST por la cual se cargan los datos, se utilizó Mongoose para el modelo.
 
-# Home
+# HOME
 
 El home consta de un input, por el cual al ingresar una frase y enviarla, 
 este se esconde y comienza a mostrar de forma dinámica todas las frases devueltas por la API.
