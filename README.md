@@ -3,7 +3,7 @@
 # TECNOLOGÍAS:
 SASS/JavaScript/Node.js /Express
 
-#PRUEBA
+# PRUEBA
 
 🔴🔴🔴https://phrasesweb-cr1337.herokuapp.com 🔴🔴🔴
 
